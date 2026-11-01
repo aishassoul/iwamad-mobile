@@ -3,6 +3,9 @@
     "name": "iwamad-mobile",
     "slug": "iwamad-mobile",
     "version": "1.0.0",
+    "experiments": {
+      "baseUrl": "/iwamad-mobile"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
