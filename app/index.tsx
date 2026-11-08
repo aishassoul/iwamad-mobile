@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { useState } from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { Link } from 'expo-router'
 
-export default function App() {
-  const [likes, setLikes] = useState(0);
+export default function HomeScreen() {
+  const [likes, setLikes] = useState(0)
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hello, World!</Text>
       <Text style={styles.name}>Aisha Kuantay</Text>
-
       <Text style={styles.likes}>Likes: {likes}</Text>
 
       <Pressable
@@ -19,9 +19,15 @@ export default function App() {
         <Text style={styles.buttonText}>Like</Text>
       </Pressable>
 
+      <Link href="/events" asChild>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Events</Text>
+        </Pressable>
+      </Link>
+
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -54,4 +60,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
   },
-});
+})
