@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import {
   ActivityIndicator,
@@ -10,21 +11,13 @@ import {
 } from 'react-native'
 import { router } from 'expo-router'
 import { useEvents } from '../../src/hooks/useEvents'
+import { useSavedIds } from '../../src/hooks/useSavedIds'
 import EventRow from '../../src/components/EventRow'
 
 export default function EventsScreen() {
   const { data, isPending, isError, error, refetch, isRefetching } = useEvents()
-
-  const [savedIds, setSavedIds] = useState<number[]>([])
+  const { savedIds, toggleSaved } = useSavedIds()
   const [search, setSearch] = useState('')
-
-  const toggleSaved = (id: number) => {
-    setSavedIds((ids) =>
-      ids.includes(id)
-        ? ids.filter((savedId) => savedId !== id)
-        : [...ids, id]
-    )
-  }
 
   if (isPending) {
     return (
